@@ -1,10 +1,18 @@
 import { useState } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import GameLayout from './components/GameLayout'
+import SoloGameLayout from './components/SoloGameLayout'
+import LeaderboardPage from './components/LeaderboardPage'
+import ResultPage from './components/ResultPage'
+import FourCutPage from './components/FourCutPage'
+import FilterPage from './components/FilterPage'
+import SharePage from './components/SharePage'
 import './App.css'
 
-function App() {
+function StarterView() {
   const [count, setCount] = useState(0)
 
   return (
@@ -115,6 +123,21 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
     </>
+  )
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<StarterView />} />
+      <Route path="/multi" element={<GameLayout />} />
+      <Route path="/solo" element={<SoloGameLayout />} />
+      <Route path="/leaderboard" element={<LeaderboardPage />} />
+      <Route path="/result" element={<ResultPage />} />
+      <Route path="/photobooth" element={<FourCutPage />} />
+      <Route path="/filter" element={<FilterPage />} />
+      <Route path="/share" element={<SharePage />} />
+    </Routes>
   )
 }
 
